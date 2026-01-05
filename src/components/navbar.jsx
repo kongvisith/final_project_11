@@ -14,25 +14,25 @@ export default function Navbar() {
       <div className="flex items-center">
         <a
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700"
-          href="#"
+          href="/"
         >
           Home
         </a>
         <a
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700"
-          href="#"
+          href="/products"
         >
           Products
         </a>
         <a
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700"
-          href="#"
+          href="/about"
         >
           About Us
         </a>
         <a
           className="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700"
-          href="#"
+          href="/contact"
         >
           Contact Us
         </a>

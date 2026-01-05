@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ProductCard({ props }) {
-  console.log("props data: ", props);
   return (
     <div className="w-[300px] rounded-md border bg-white dark:bg-gray-800 shadow-lg transition-colors duration-500">
       <img
