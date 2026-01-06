@@ -216,7 +216,7 @@ function App() {
                     AI Review”. They all repeat: pricing, accuracy, chrome
                     extension. None answer the real beginner pain points: Which
                     real-world niches still throw high false-positives like
-                    travel blogs vs coding blogs
+                    travel blogs
                   </p>
                   <a class="mt-3 text-indigo-500 inline-flex items-center">
                     Learn More
