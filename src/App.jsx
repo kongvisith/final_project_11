@@ -1,7 +1,6 @@
 import React from "react";
 import { Loader2, Star } from "lucide-react";
 
-// --- បំណែកកូដពី Service Component ---
 const Service = () => {
   const Service1 = [
     {
@@ -32,9 +31,9 @@ const Service = () => {
 
   return (
     <div className="font-sans">
-      {/* --- Section 1: Testimonials --- */}
+      {}
       <section className="bg-white py-24 px-6">
-        {/* កែពី max-w-6xl ទៅ max-w-[1440px] ដើម្បីទាញឱ្យរីកពេញសងខាង */}
+        {}
         <div className="max-w-[1440px] mx-auto text-center">
           <h4 className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">
             Testimonials
@@ -108,7 +107,6 @@ const Service = () => {
   );
 };
 
-// --- បំណែកកូដពី App Component ---
 const StatItem = ({ label, value }) => (
   <div className="p-6">
     <div className="text-5xl font-bold mb-2">{value}</div>
@@ -144,7 +142,7 @@ function FeatureCard({ imageSrc, title, desc }) {
 function App() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
-      {/* --- Hero Section --- */}
+      {}
       <section className="relative bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
@@ -215,7 +213,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- Stats Section --- */}
+      {}
       <section className="py-20 bg-gradient-to-br from-indigo-600 to-purple-700 text-white shadow-inner">
         <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <StatItem label="Happy Customers" value="10K+" />
@@ -225,7 +223,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- ដាក់បន្ថែម Service Section នៅទីនេះ --- */}
+      {}
       <Service />
     </div>
   );

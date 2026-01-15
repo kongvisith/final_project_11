@@ -27,13 +27,13 @@ const StarRating = memo(({ rate }) => {
 });
 
 const ProductSkeleton = () => (
-  <div className="bg-white rounded-xl p-5 border border-gray-100">
-    <div className="bg-gray-200 h-48"></div>
-    <div className="h-4 bg-gray-200"></div>
-    <div className="h-3 bg-gray-200"></div>
-    <div className="flex justify-between items-center">
-      <div className="h-6 bg-gray-200"></div>
-      <div className="h-8 bg-gray-200"></div>
+  <div className="bg-white rounded-xl p-5 border border-gray-100 animate-pulse">
+    <div className="bg-gray-200 h-48 rounded-lg mb-4"></div>
+    <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+    <div className="h-3 bg-gray-200 rounded w-full mb-4"></div>
+    <div className="flex justify-between items-center mt-auto">
+      <div className="h-6 bg-gray-200 rounded w-1/4"></div>
+      <div className="h-8 bg-gray-200 rounded w-1/3"></div>
     </div>
   </div>
 );
@@ -45,9 +45,17 @@ export default function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL;
+        // បន្ថែម fallback URL ប្រសិនបើ .env មិនទាន់ដំណើរការ
+        const apiUrl = import.meta.env.VITE_API_URL || "https://fakestoreapi.com";
         const { data } = await axios.get(`${apiUrl}/products`);
-        setProducts(data);
+        
+        // ចំណុចសំខាន់៖ ត្រួតពិនិត្យថាទិន្នន័យជា Array ទើបដាក់ចូល State
+        if (Array.isArray(data)) {
+          setProducts(data);
+        } else {
+          setProducts([]); 
+        }
+        
         setStatus({ loading: false, error: null });
       } catch (err) {
         setStatus({ loading: false, error: err.message });
@@ -58,7 +66,7 @@ export default function Products() {
 
   if (status.error) {
     return (
-      <div className="min-h-screen flex justify-center items-center text-red-500 font-bold">
+      <div className="min-h-screen flex justify-center items-center text-red-500 font-bold bg-[#E5E7EB]">
         Error: {status.error}
       </div>
     );
@@ -67,16 +75,15 @@ export default function Products() {
   return (
     <div className="bg-[#E5E7EB] min-h-screen py-10 px-4 md:px-8">
       <div className="max-w-[1600px] mx-auto">
-        {}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
           {status.loading
             ? [...Array(10)].map((_, i) => <ProductSkeleton key={i} />)
-            : products.map((product) => (
+            : // បន្ថែម ?. ដើម្បីការពារ Error map ប្រសិនបើ products ជា null/undefined
+              products?.map((product) => (
                 <div
                   key={product.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 hover:shadow-md"
                 >
-                  {}
                   <Link
                     to={`/products/${product.id}`}
                     className="p-6 flex justify-center items-center h-[260px] bg-white"
@@ -88,7 +95,6 @@ export default function Products() {
                     />
                   </Link>
 
-                  {}
                   <div className="p-5 flex flex-col flex-grow">
                     <h5 className="text-[16px] font-bold text-gray-900 line-clamp-1 mb-2 leading-tight">
                       {product.title}
@@ -102,7 +108,6 @@ export default function Products() {
                       <StarRating rate={product.rating?.rate} />
                     </div>
 
-                    {}
                     <div className="flex items-center justify-between mt-auto">
                       <span className="text-xl font-bold text-gray-900">
                         ${product.price}
