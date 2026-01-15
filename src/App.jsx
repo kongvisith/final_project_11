@@ -1,244 +1,233 @@
-import "./App.css";
+import React from "react";
+import { Loader2, Star } from "lucide-react";
+
+// --- បំណែកកូដពី Service Component ---
+const Service = () => {
+  const Service1 = [
+    {
+      name: "Sarah Johnson",
+      role: "CEO, TechStart",
+      image:
+        "https://i.pinimg.com/1200x/f4/b2/89/f4b289b33ed4d549b74434990aa0c280.jpg",
+      text: '"This platform transformed our business. The ease of use combined with powerful features is unmatched in the industry."',
+      borderColor: "border-l-blue-500",
+    },
+    {
+      name: "Michael Chen",
+      role: "Marketing Director",
+      image:
+        "https://i.pinimg.com/736x/75/ef/83/75ef8366fca2cfed75ae0be5f6c60c18.jpg",
+      text: '"The customer support is exceptional. They helped us migrate our entire infrastructure with zero downtime."',
+      borderColor: "border-l-purple-500",
+    },
+    {
+      name: "Emma Rodriguez",
+      role: "Product Manager",
+      image:
+        "https://i.pinimg.com/736x/4c/7e/47/4c7e4760d3661c995e1101df2f11e7db.jpg",
+      text: '"We\'ve seen a 300% increase in conversions since implementing their solution. Simply game-changing!"',
+      borderColor: "border-l-pink-500",
+    },
+  ];
+
+  return (
+    <div className="font-sans">
+      {/* --- Section 1: Testimonials --- */}
+      <section className="bg-white py-24 px-6">
+        {/* កែពី max-w-6xl ទៅ max-w-[1440px] ដើម្បីទាញឱ្យរីកពេញសងខាង */}
+        <div className="max-w-[1440px] mx-auto text-center">
+          <h4 className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">
+            Testimonials
+          </h4>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-20">
+            What Our Customers Say
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+            {Service1.map((item, index) => (
+              <div
+                key={index}
+                className={`bg-white p-10 rounded-3xl shadow-2xl border-l-[6px] ${item.borderColor} transition-all duration-300 hover:scale-105 active:scale-95`}
+              >
+                <div className="flex items-center gap-5 mb-6">
+                  <img
+                    src={item.image}
+                    className="w-16 h-16 rounded-full object-cover shadow-md"
+                    alt={item.name}
+                  />
+                  <div>
+                    <h5 className="font-bold text-xl text-gray-900 leading-tight">
+                      {item.name}
+                    </h5>
+                    <p className="text-blue-600 font-semibold">{item.role}</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 italic leading-relaxed text-xl">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section 2: Call to Action (CTA) --- */}
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-24 px-6 text-center text-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Business?
+          </h2>
+          <p className="text-blue-100 mb-10 text-lg opacity-90">
+            Join thousands of satisfied customers who are already building the
+            future with our platform.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button
+              className="bg-white text-blue-700 px-8 py-5 rounded-lg font-bold 
+             hover:bg-gray-100
+               transition-transform duration-200
+               hover:scale-105
+               active:scale-95
+               shadow-lg"
+            >
+              Start Free Trial
+            </button>
+
+            <button
+              className="bg-transparent border-2 border-white/50 text-white px-8 py-3 rounded-lg font-bold 
+              transition-transform duration-200
+              hover:scale-105
+              active:scale-95"
+            >
+              Schedule Demo
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// --- បំណែកកូដពី App Component ---
+const StatItem = ({ label, value }) => (
+  <div className="p-6">
+    <div className="text-5xl font-bold mb-2">{value}</div>
+    <div className="text-indigo-200 font-medium">{label}</div>
+  </div>
+);
+
+function FeatureCard({ imageSrc, title, desc }) {
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-1 group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-transparent hover:border-indigo-100">
+      <div className="h-[200px] overflow-hidden mb-6 rounded-t-xl">
+        <img
+          src={imageSrc}
+          className="w-full h-full object-cover"
+          alt={title}
+        />
+      </div>
+
+      <div className="px-6 pb-8">
+        <h4 className="text-xl font-bold mb-6 group-hover:text-indigo-600 transition-colors">
+          {title}
+        </h4>
+        <p className="text-gray-500 text-[18px] leading-relaxed mb-4">{desc}</p>
+        <button className="text-blue-600 font-bold text-sm flex items-center gap-2 group/btn">
+          Explore
+          <i className="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <>
-      <section className="bg-blue-600 py-20">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-white font-bold text-5xl leading-tight mb-6">
-                Welcome to <br /> P-Service
+    <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
+      {/* --- Hero Section --- */}
+      <section className="relative bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        </div>
+
+        <div className="container mx-auto px-6 py-24 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Build Amazing
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500">
+                  Products Experiences
+                </span>
               </h1>
-              <p className="text-white text-xl mb-8">
-                We have many service for customers, we sell many products like
-                T-Shirt, Shoes, ...
+              <p className="text-xl text-blue-100 mb-8 max-w-lg leading-relaxed">
+                Our platform helps you create stunning websites and applications
+                with minimal effort and maximum creativity.
               </p>
-              <a
-                href="#"
-                className="px-6 py-3 bg-white text-blue-600 font-bold rounded-full hover:bg-blue-700 transition duration-200"
-              >
-                Shop now
-              </a>
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-gradient-to-r from-pink-500 to-yellow-500 px-8 py-4 rounded-xl font-bold hover:brightness-110 transition-all transform hover:scale-105 shadow-xl">
+                  Get Started Free
+                </button>
+                <button className="bg-white/20 backdrop-blur-md px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all border border-white/30">
+                  Learn More
+                </button>
+              </div>
             </div>
-            <div className="md:w-1/2">
+
+            <div className="lg:w-1/2 relative">
+              <div className="absolute -top-20 -left-20 w-64 h-64 bg-pink-500 rounded-full blur-[100px] opacity-20"></div>
               <img
-                src="https://plus.unsplash.com/premium_photo-1675716443562-b771d72a3da7"
-                alt="Coffee beans"
-                className="w-full rounded-lg shadow-lg"
+                src="https://i.pinimg.com/736x/a7/f6/8e/a7f68e007cec2c8f1d378d8f7568b721.jpg"
+                alt="Professional Businessman"
+                className="relative z-10 w-full max-w-lg mx-auto shadow-2xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">
-            Top Sell Products
+      {/* --- Features Section --- */}
+      <section className="py-24">
+        <div className="container mx-auto px-6 text-center mb-16">
+          <h2 className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">
+            Features
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
-                alt="Coffee"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  Single Origin Blend
-                </h3>
-                <p className="text-gray-700 text-base">
-                  Our most popular blend, featuring beans from a single farm in
-                  Ethiopia. Notes of chocolate, berries, and citrus.
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-gray-700 font-medium">$14.99</span>
-                  <button className="px-4 py-2 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition duration-200">
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                src="https://plus.unsplash.com/premium_photo-1675716443562-b771d72a3da7"
-                alt="Coffee"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  Dark Roast Blend
-                </h3>
-                <p className="text-gray-700 text-base">
-                  A bold and flavorful blend of beans from Brazil, Colombia, and
-                  Indonesia. Notes of caramel, nuts, and tobacco.
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-gray-700 font-medium">$12.99</span>
-                  <button className="px-4 py-2 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition duration-200">
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                src="https://plus.unsplash.com/premium_photo-1675716443562-b771d72a3da7"
-                alt="Coffee"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  Dark Roast Blend
-                </h3>
-                <p className="text-gray-700 text-base">
-                  A bold and flavorful blend of beans from Brazil, Colombia, and
-                  Indonesia. Notes of caramel, nuts, and tobacco.
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-gray-700 font-medium">$12.99</span>
-                  <button className="px-4 py-2 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition duration-200">
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h3 className="text-4xl font-extrabold text-gray-900">
+            Everything You Need to Succeed
+          </h3>
+        </div>
+
+        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FeatureCard
+            imageSrc="https://i.pinimg.com/736x/ab/28/a1/ab28a1bf74bd895715c4b151f16c4d47.jpg"
+            title="Lightning Fast"
+            desc="Optimized for performance with instant load times and smooth animations."
+          />
+          <FeatureCard
+            imageSrc="https://i.pinimg.com/736x/72/df/a0/72dfa0874a78f4c843ca80531fbc27f4.jpg"
+            title="Beautiful Design"
+            desc="Stunning templates and customization options to make your project stand out."
+          />
+          <FeatureCard
+            imageSrc="https://i.pinimg.com/736x/a7/f6/8e/a7f68e007cec2c8f1d378d8f7568b721.jpg"
+            title="Secure & Reliable"
+            desc="Enterprise-grade security and 99.9% uptime guarantee for your business."
+          />
         </div>
       </section>
 
-      <section class="text-gray-700 body-font border-t border-gray-200">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-col text-center w-full mb-20">
-            <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
-              Proved by Customer
-            </h2>
-            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-              Cutomer Feedbacks
-            </h1>
-          </div>
-          <div class="flex flex-wrap -m-4">
-            <div class="p-4 md:w-1/3">
-              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <img
-                      src="https://i.pinimg.com/1200x/c7/ec/41/c7ec41bee1fcf06db4d5cd43af9ce801.jpg"
-                      alt=""
-                      className="rounded-full w-8 h-8"
-                    />
-                  </div>
-                  <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Nile Gomez
-                  </h2>
-                </div>
-                <div class="flex-grow">
-                  <p class="leading-relaxed text-base">
-                    🌟 Your Online Brand Matters More Than Ever! 🌟 Are you
-                    making these 5 common branding mistakes? 😱 From
-                    inconsistent messaging to ignoring your audience, these
-                    pitfalls could be holding you back. But don't worry—we've
-                    got solutions! ✅
-                  </p>
-                  <a class="mt-3 text-indigo-500 inline-flex items-center">
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="p-4 md:w-1/3">
-              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <img
-                      src="https://i.pinimg.com/1200x/65/61/d8/6561d8f83a64e476caadedbcc1449f5c.jpg"
-                      alt=""
-                      className="rounded-full w-8 h-8"
-                    />
-                  </div>
-                  <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Ai Daily Updates
-                  </h2>
-                </div>
-                <div class="flex-grow">
-                  <p class="leading-relaxed text-base">
-                    Seize the opportunity! With 80% market share in data center
-                    GPUs and unmatched AI dominance, NVIDIA offers incredible
-                    long-term growth potential despite recent price dips ⬇️
-                    Smart investors recognize value when they see it! Tap to
-                  </p>
-                  <a class="mt-3 text-indigo-500 inline-flex items-center">
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="p-4 md:w-1/3">
-              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <img
-                      src="https://i.pinimg.com/736x/73/e0/97/73e097a9cb54c95c56385d629762be35.jpg"
-                      alt=""
-                      className="rounded-full w-8 h-8"
-                    />
-                  </div>
-                  <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Neptune
-                  </h2>
-                </div>
-                <div class="flex-grow">
-                  <p class="leading-relaxed text-base">
-                    I analyzed the top five blog posts ranking for “Originality
-                    AI Review”. They all repeat: pricing, accuracy, chrome
-                    extension. None answer the real beginner pain points: Which
-                    real-world niches still throw high false-positives like
-                    travel blogs
-                  </p>
-                  <a class="mt-3 text-indigo-500 inline-flex items-center">
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* --- Stats Section --- */}
+      <section className="py-20 bg-gradient-to-br from-indigo-600 to-purple-700 text-white shadow-inner">
+        <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <StatItem label="Happy Customers" value="10K+" />
+          <StatItem label="Uptime" value="99.9%" />
+          <StatItem label="Daily Requests" value="5M+" />
+          <StatItem label="Support" value="24/7" />
         </div>
       </section>
-    </>
+
+      {/* --- ដាក់បន្ថែម Service Section នៅទីនេះ --- */}
+      <Service />
+    </div>
   );
 }
 
