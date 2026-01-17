@@ -9,6 +9,7 @@ function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const API_URL = "https://your-backend-api.onrender.com/register";
 
   const handleSubmit = async (e) => {
@@ -30,7 +31,7 @@ function RegisterForm() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-slate-50 p-4 font-sans">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-slate-50 p-4 font-sans py-10">
       <div className="w-full max-w-[420px] bg-white rounded-3xl shadow-2xl p-6 sm:p-10 border border-slate-100">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -101,7 +102,7 @@ function RegisterForm() {
             Already have an account?{" "}
             <Link
               to="/login"
-              className="text-blue-600 font-bold hover:underline transition-all"
+              className="text-blue-600 font-bold hover:underline"
             >
               Sign In
             </Link>
