@@ -1,6 +1,7 @@
 import React from "react";
 import { Loader2, Star } from "lucide-react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Service = () => {
   const Service1 = [
@@ -32,9 +33,7 @@ const Service = () => {
 
   return (
     <div className="font-sans">
-      {}
       <section className="bg-white py-24 px-6">
-        {}
         <div className="max-w-[1440px] mx-auto text-center">
           <h4 className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">
             Testimonials
@@ -71,7 +70,6 @@ const Service = () => {
         </div>
       </section>
 
-      {}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-24 px-6 text-center text-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -82,22 +80,18 @@ const Service = () => {
             future with our platform.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button
+            {}
+            <Link
+              to="/products"
               className="bg-white text-blue-700 px-8 py-5 rounded-lg font-bold 
-             hover:bg-gray-100
-               transition-transform duration-200
-               hover:scale-105
-               active:scale-95
-               shadow-lg"
+             hover:bg-gray-100 transition-transform duration-200 hover:scale-105 active:scale-95 shadow-lg flex items-center justify-center"
             >
               Start Free Trial
-            </button>
+            </Link>
 
             <button
               className="bg-transparent border-2 border-white/50 text-white px-8 py-3 rounded-lg font-bold 
-              transition-transform duration-200
-              hover:scale-105
-              active:scale-95"
+              transition-transform duration-200 hover:scale-105 active:scale-95"
             >
               Schedule Demo
             </button>
@@ -116,6 +110,7 @@ const StatItem = ({ label, value }) => (
 );
 
 function FeatureCard({ imageSrc, title, desc }) {
+  const navigate = useNavigate();
   return (
     <div className="bg-white rounded-2xl shadow-lg p-1 group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-transparent hover:border-indigo-100">
       <div className="h-[200px] overflow-hidden mb-6 rounded-t-xl">
@@ -131,7 +126,11 @@ function FeatureCard({ imageSrc, title, desc }) {
           {title}
         </h4>
         <p className="text-gray-500 text-[18px] leading-relaxed mb-4">{desc}</p>
-        <button className="text-blue-600 font-bold text-sm flex items-center gap-2 group/btn">
+        {}
+        <button
+          onClick={() => navigate("/products")}
+          className="text-blue-600 font-bold text-sm flex items-center gap-2 group/btn"
+        >
           Explore
           <i className="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
         </button>
@@ -141,9 +140,10 @@ function FeatureCard({ imageSrc, title, desc }) {
 }
 
 function App() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
-      {}
       <section className="relative bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
@@ -163,12 +163,19 @@ function App() {
                 with minimal effort and maximum creativity.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-gradient-to-r from-pink-500 to-yellow-500 px-8 py-4 rounded-xl font-bold hover:brightness-110 transition-all transform hover:scale-105 shadow-xl">
+                {}
+                <button
+                  onClick={() => navigate("/products")}
+                  className="bg-gradient-to-r from-pink-500 to-yellow-500 px-8 py-4 rounded-xl font-bold hover:brightness-110 transition-all transform hover:scale-105 shadow-xl"
+                >
                   Get Started Free
                 </button>
-                <button className="bg-white/20 backdrop-blur-md px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all border border-white/30">
+                <Link
+                  to="/about"
+                  className="bg-white/20 backdrop-blur-md px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-all border border-white/30 flex items-center justify-center"
+                >
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -184,7 +191,6 @@ function App() {
         </div>
       </section>
 
-      {}
       <section className="py-24">
         <div className="container mx-auto px-6 text-center mb-16">
           <h2 className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">
@@ -214,7 +220,6 @@ function App() {
         </div>
       </section>
 
-      {}
       <section className="py-20 bg-gradient-to-br from-indigo-600 to-purple-700 text-white shadow-inner">
         <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <StatItem label="Happy Customers" value="10K+" />
@@ -224,7 +229,6 @@ function App() {
         </div>
       </section>
 
-      {}
       <Service />
     </div>
   );
