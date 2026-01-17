@@ -28,7 +28,7 @@ function Login() {
       }
     } catch (err) {
       setErrorMessage(
-        err.response?.data || "Login failed. Please check your connection."
+        err.response?.data || "Login failed. Please check your connection.",
       );
     } finally {
       setIsLoading(false);

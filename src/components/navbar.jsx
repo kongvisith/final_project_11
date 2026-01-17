@@ -56,13 +56,13 @@ export default function Navbar() {
               to="/login"
               className="text-[16px] lg:text-[17px] font-bold text-gray-300 hover:text-white transition-colors whitespace-nowrap"
             >
-              Sign up
+              Login
             </Link>
             <Link
               to="/register"
               className="bg-indigo-600 hover:bg-indigo-700 text-white text-[16px] lg:text-[17px] font-bold py-2.5 px-6 lg:px-7 rounded-lg transition-all active:scale-95 whitespace-nowrap"
             >
-              Login
+              Sign up
             </Link>
           </div>
 
@@ -108,13 +108,13 @@ export default function Navbar() {
               to="/LoginForm"
               className="w-full text-center py-3 text-gray-300 border border-gray-700 rounded-xl font-bold hover:bg-gray-800 transition-colors"
             >
-              Sign up
+              Login
             </Link>
             <Link
               to="/RegisterForm"
               className="w-full bg-indigo-600 text-center py-3 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors"
             >
-              Login
+              Sign up
             </Link>
           </div>
         </div>
