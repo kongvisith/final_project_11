@@ -20,12 +20,7 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
       { path: "products", element: <Products /> },
-      {
-        element: <ProtectedRoute />,
-        children: [
-          { path: "products/:id", element: <ProductDetail /> },
-        ],
-      },
+      { path: "products/:id", element: <ProductDetail /> },
     ],
   },
   { path: "/login", element: <LoginForm /> },
