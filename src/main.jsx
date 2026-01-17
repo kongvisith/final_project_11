@@ -1,9 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
 import Layout from "./components/layouts/layout.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import LoginForm from "./components/loginForm.jsx";
+import RegisterForm from "./components/registerForm.jsx";
+import App from "./App.jsx";
 import Products from "./pages/products.jsx";
 import About from "./pages/about.jsx";
 import Contact from "./pages/contact.jsx";
@@ -14,12 +17,19 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <App /> },
-      { path: "products", element: <Products /> },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
-      { path: "products/:id", element: <ProductDetail /> },
+      {
+        element: <ProtectedRoute />,
+        children: [
+          { path: "products", element: <Products /> },
+          { path: "products/:id", element: <ProductDetail /> },
+        ],
+      },
     ],
   },
+  { path: "/login", element: <LoginForm /> },
+  { path: "/register", element: <RegisterForm /> },
 ]);
 
 createRoot(document.getElementById("root")).render(

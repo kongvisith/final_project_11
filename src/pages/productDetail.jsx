@@ -49,9 +49,8 @@ export default function ProductDetail() {
     <div className="bg-[#1B2431] py-10 lg:py-22 text-white font-sans min-h-screen">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-start">
-          
-          {/* Left Side: Product Image & Action Buttons */}
-          {/* បន្ថែម max-w-md ដើម្បីឱ្យប៊ូតុង និងរូបភាពមានទទឹងស៊ីគ្នាស្អាត */}
+          {}
+          {}
           <div className="w-full max-w-md flex flex-col">
             <div className="bg-[#D1D5DB] rounded-lg h-[450px] w-full flex items-center justify-center p-8 shadow-xl overflow-hidden mb-6">
               <img
@@ -61,7 +60,7 @@ export default function ProductDetail() {
               />
             </div>
 
-            {/* Action Buttons: ប្រើ w-full និង flex-1 ដើម្បីឱ្យវាស្មើគ្នា និងស្មើគែមរូបភាព */}
+            {}
             <div className="flex flex-row gap-4 w-full">
               <button className="flex-1 bg-[#4B5563] hover:bg-gray-500 text-white py-3 rounded-lg font-bold transition-all active:scale-95 text-[12px] sm:text-sm md:text-base whitespace-nowrap px-2">
                 Add to Cart
@@ -72,7 +71,7 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Right Side: Product Information */}
+          {}
           <div className="flex-1 flex flex-col justify-start w-full">
             <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-2">
               {product.title}
@@ -88,20 +87,30 @@ export default function ProductDetail() {
                 <span className="text-xl">${product.price}</span>
               </div>
               <div className="flex items-center">
-                <span className="text-gray-300 font-bold mr-2">Availability:</span>
+                <span className="text-gray-300 font-bold mr-2">
+                  Availability:
+                </span>
                 <span className="text-green-500 font-semibold">In Stock</span>
               </div>
             </div>
 
-            {/* Star Rating Section */}
+            {}
             <div className="flex items-center gap-3 mb-6">
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     size={18}
-                    fill={i < Math.round(product.rating?.rate || 0) ? "currentColor" : "none"}
-                    className={i < Math.round(product.rating?.rate || 0) ? "" : "text-gray-300"}
+                    fill={
+                      i < Math.round(product.rating?.rate || 0)
+                        ? "currentColor"
+                        : "none"
+                    }
+                    className={
+                      i < Math.round(product.rating?.rate || 0)
+                        ? ""
+                        : "text-gray-300"
+                    }
                   />
                 ))}
               </div>
@@ -110,7 +119,7 @@ export default function ProductDetail() {
               </span>
             </div>
 
-            {/* Select Color */}
+            {}
             <div className="mb-6">
               <h3 className="font-bold text-gray-300 mb-3">Select Color:</h3>
               <div className="flex gap-3">
@@ -121,7 +130,7 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Select Size */}
+            {}
             <div className="mb-6">
               <h3 className="font-bold text-gray-300 mb-3">Select Size:</h3>
               <div className="flex gap-2 flex-wrap">
@@ -136,9 +145,11 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Product Description */}
+            {}
             <div className="mt-4 border-t border-gray-700 pt-6">
-              <h3 className="font-bold text-gray-300 mb-2">Product Description:</h3>
+              <h3 className="font-bold text-gray-300 mb-2">
+                Product Description:
+              </h3>
               <p className="text-gray-300 text-sm leading-relaxed">
                 {product.description}
               </p>

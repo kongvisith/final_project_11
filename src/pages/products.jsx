@@ -45,17 +45,16 @@ export default function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // បន្ថែម fallback URL ប្រសិនបើ .env មិនទាន់ដំណើរការ
-        const apiUrl = import.meta.env.VITE_API_URL || "https://fakestoreapi.com";
+        const apiUrl =
+          import.meta.env.VITE_API_URL || "https://fakestoreapi.com";
         const { data } = await axios.get(`${apiUrl}/products`);
-        
-        // ចំណុចសំខាន់៖ ត្រួតពិនិត្យថាទិន្នន័យជា Array ទើបដាក់ចូល State
+
         if (Array.isArray(data)) {
           setProducts(data);
         } else {
-          setProducts([]); 
+          setProducts([]);
         }
-        
+
         setStatus({ loading: false, error: null });
       } catch (err) {
         setStatus({ loading: false, error: err.message });
@@ -78,8 +77,7 @@ export default function Products() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
           {status.loading
             ? [...Array(10)].map((_, i) => <ProductSkeleton key={i} />)
-            : // បន្ថែម ?. ដើម្បីការពារ Error map ប្រសិនបើ products ជា null/undefined
-              products?.map((product) => (
+            : products?.map((product) => (
                 <div
                   key={product.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 hover:shadow-md"

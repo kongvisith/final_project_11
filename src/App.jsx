@@ -1,5 +1,6 @@
 import React from "react";
 import { Loader2, Star } from "lucide-react";
+import { useState } from "react";
 
 const Service = () => {
   const Service1 = [
@@ -174,7 +175,7 @@ function App() {
             <div className="lg:w-1/2 relative">
               <div className="absolute -top-20 -left-20 w-64 h-64 bg-pink-500 rounded-full blur-[100px] opacity-20"></div>
               <img
-                src="https://i.pinimg.com/736x/a7/f6/8e/a7f68e007cec2c8f1d378d8f7568b721.jpg"
+                src="https://i.pinimg.com/1200x/7d/a9/71/7da97180d730fde550ce8c33774afb18.jpg"
                 alt="Professional Businessman"
                 className="relative z-10 w-full max-w-lg mx-auto shadow-2xl"
               />
@@ -183,7 +184,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- Features Section --- */}
+      {}
       <section className="py-24">
         <div className="container mx-auto px-6 text-center mb-16">
           <h2 className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">
@@ -196,17 +197,17 @@ function App() {
 
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
           <FeatureCard
-            imageSrc="https://i.pinimg.com/736x/ab/28/a1/ab28a1bf74bd895715c4b151f16c4d47.jpg"
+            imageSrc="https://i.pinimg.com/1200x/90/15/ac/9015acfe289387d3407945fbd843b90b.jpg"
             title="Lightning Fast"
             desc="Optimized for performance with instant load times and smooth animations."
           />
           <FeatureCard
-            imageSrc="https://i.pinimg.com/736x/72/df/a0/72dfa0874a78f4c843ca80531fbc27f4.jpg"
+            imageSrc="https://i.pinimg.com/736x/62/04/36/620436c360d04427d642e90dc6fa878b.jpg"
             title="Beautiful Design"
             desc="Stunning templates and customization options to make your project stand out."
           />
           <FeatureCard
-            imageSrc="https://i.pinimg.com/736x/a7/f6/8e/a7f68e007cec2c8f1d378d8f7568b721.jpg"
+            imageSrc="https://i.pinimg.com/1200x/91/51/e9/9151e900b1e14a7a22bcc4b1b93206fa.jpg"
             title="Secure & Reliable"
             desc="Enterprise-grade security and 99.9% uptime guarantee for your business."
           />

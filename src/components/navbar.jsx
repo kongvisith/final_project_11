@@ -20,7 +20,6 @@ export default function Navbar() {
     <nav className="relative z-[100] bg-gray-900 py-4 border-b border-gray-800">
       <div className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-12">
         <div className="flex items-center justify-between h-16 relative">
-          
           {/* Logo Section */}
           <div className="flex-shrink-0 z-10">
             <Link to="/" className="flex items-center gap-2 group">
@@ -51,7 +50,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop Buttons (Sign up / Login) */}
+          {}
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
             <Link
               to="/login"
@@ -67,8 +66,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button (Hamburger) */}
-          {/* កែសម្រួល៖ ប៊ូតុងនេះនឹងបង្ហាញតែលើ Mobile ប៉ុណ្ណោះ ដូចរូបទី ៩ */}
+          {}
+          {}
           <div className="md:hidden flex items-center z-10">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -81,8 +80,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {/* កែសម្រួល៖ រៀបចំ Mobile Menu ឱ្យមានរបៀបរៀបរយ មិនឱ្យជាន់លើខ្លឹមសារទំព័រ */}
+      {}
+      {}
       <div
         className={`md:hidden absolute top-full left-0 w-full bg-gray-900 border-t border-gray-800 transition-all duration-300 shadow-2xl ${
           isOpen
@@ -106,13 +105,13 @@ export default function Navbar() {
           ))}
           <div className="pt-6 border-t border-gray-800 flex flex-col gap-4">
             <Link
-              to="/login"
+              to="/LoginForm"
               className="w-full text-center py-3 text-gray-300 border border-gray-700 rounded-xl font-bold hover:bg-gray-800 transition-colors"
             >
               Sign up
             </Link>
             <Link
-              to="/register"
+              to="/RegisterForm"
               className="w-full bg-indigo-600 text-center py-3 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors"
             >
               Login

@@ -52,7 +52,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Phone */}
+              {}
               <div className="flex">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
