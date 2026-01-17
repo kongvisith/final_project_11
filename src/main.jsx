@@ -19,10 +19,10 @@ const router = createBrowserRouter([
       { path: "/", element: <App /> },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
+      { path: "products", element: <Products /> },
       {
         element: <ProtectedRoute />,
         children: [
-          { path: "products", element: <Products /> },
           { path: "products/:id", element: <ProductDetail /> },
         ],
       },
