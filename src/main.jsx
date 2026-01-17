@@ -3,8 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Layout from "./components/layouts/layout.jsx";
-import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import LoginForm from "./components/loginForm.jsx";
+import Login from "./components/loginForm.jsx";
 import RegisterForm from "./components/registerForm.jsx";
 import App from "./App.jsx";
 import Products from "./pages/products.jsx";
@@ -23,7 +22,7 @@ const router = createBrowserRouter([
       { path: "products/:id", element: <ProductDetail /> },
     ],
   },
-  { path: "/login", element: <LoginForm /> },
+  { path: "/login", element: <Login /> },
   { path: "/register", element: <RegisterForm /> },
 ]);
 
